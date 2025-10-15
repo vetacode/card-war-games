@@ -4,7 +4,7 @@ body {
   padding: 0;
   background-image: url('img/table.png');
   font-family: 'Exo 2', sans-serif;
-  height: 100vh;
+  /* height: 100vh; */
   background: #1fa2ff;
   background: -webkit-linear-gradient(to bottom, #a6ffcb, #12d8fa, #1fa2ff);
   background: linear-gradient(to bottom, #a6ffcb, #12d8fa, #1fa2ff);
@@ -36,7 +36,7 @@ button:hover {
 button:active {
   background-color: darkgoldenrod;
   transform: scale(0.95);
-  cursor: pointer;
+  color: white;
 }
 
 button#new-deck {
