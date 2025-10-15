@@ -24,12 +24,29 @@ button {
   border: none;
   border-radius: 5px;
   font-weight: bold;
+  font-size: 1.2rem;
   padding: 10px;
 }
 
+button:hover {
+  background-color: #ffcc00;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: darkgoldenrod;
+  transform: scale(0.95);
+  cursor: pointer;
+}
+
 button#new-deck {
-  align-self: flex-start;
+  align-self: flex-center;
   padding: 5px;
+  margin: 10px;
+  background-color: #a6ffcb;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
 }
 
 button.draw {
