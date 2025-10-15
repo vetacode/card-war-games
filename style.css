@@ -5,6 +5,7 @@ body {
   background-image: url('img/table.png');
   font-family: 'Exo 2', sans-serif;
   height: 100vh;
+  background-color: #fff100;
 }
 
 body {
@@ -67,5 +68,10 @@ button:disabled {
 }
 
 h2 {
+  margin: 10px;
+}
+
+h1 {
+  color: blue;
   margin: 10px;
 }
