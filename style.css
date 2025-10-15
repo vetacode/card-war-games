@@ -5,7 +5,9 @@ body {
   background-image: url('img/table.png');
   font-family: 'Exo 2', sans-serif;
   height: 100vh;
-  background-color: #fff100;
+  background: #1fa2ff;
+  background: -webkit-linear-gradient(to bottom, #a6ffcb, #12d8fa, #1fa2ff);
+  background: linear-gradient(to bottom, #a6ffcb, #12d8fa, #1fa2ff);
 }
 
 body {
@@ -72,6 +74,6 @@ h2 {
 }
 
 h1 {
-  color: blue;
+  color: ;
   margin: 10px;
 }
