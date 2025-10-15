@@ -19,6 +19,9 @@ button {
   background-color: #fff100;
   cursor: pointer;
   border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px;
 }
 
 button#new-deck {
