@@ -20,8 +20,8 @@ function handleClick() {
 
 // document.getElementById('deck').addEventListener('click', handleClick);
 
-function fn() {
+function callback() {
   console.log('I run after 3 seconds');
 }
 
-setTimeout(fn, 3000);
+setTimeout(callback, 3000);
