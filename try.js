@@ -139,3 +139,15 @@ const promise = fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle
 console.log(promise) // promise
 const promise2 = promise.then(res => res.json())
 console.log(promise2) //promise
+
+
+fetch("https://apis.scrimba.com/bored/api/activity")
+    .then(function(res) {
+        return "Hello" //has to return something to print in the next then
+    })
+    .then(function(whatever) {
+        console.log(whatever)
+        return 'World!'  //has to return something to print in the next then
+    }).then(function(anything){
+      console.log(anything)
+    })
