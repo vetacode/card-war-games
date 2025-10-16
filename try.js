@@ -42,5 +42,9 @@ const people = [
   { name: 'Bob', hasPet: false },
 ];
 
-const peopleWithPets = people.filter((person) => person.hasPet);
+function hasPet(person) {
+  return person.hasPet;
+}
+
+const peopleWithPets = people.filter(hasPet);
 console.log(peopleWithPets);
