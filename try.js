@@ -133,3 +133,9 @@ const voters = [
 
 const personVoted = voters.filter(p => p.voted).map(e => e.email).forEach(d => console.log(d))
 // console.log(personVoted) 
+
+
+const promise = fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
+console.log(promise) // promise
+const promise2 = promise.then(res => res.json())
+console.log(promise2) //promise
