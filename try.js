@@ -259,7 +259,6 @@ function theWinnerIs(card1, card2) {
 
   if (card1ValueIndex > card2ValueIndex) {
     console.log('Computer Win!');
-
     document.getElementById('header').textContent = 'Computer Win!';
   } else if (card1ValueIndex === card2ValueIndex) {
     console.log(`It's a WAR!!`);

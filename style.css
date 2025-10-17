@@ -41,13 +41,14 @@ button:active {
 
 button#new-deck {
   align-self: flex-center;
-  padding: 10px;
+  padding: 10px 30px;
   margin: 10px;
   background-color: #5a47ff;
   cursor: pointer;
   border: none;
   border-radius: 5px;
   color: aliceblue;
+  font-size: x-large;
 }
 
 button#new-deck:hover {
@@ -60,11 +61,11 @@ button#new-deck:active {
   background-color: #3a27d0;
 }
 
-button.draw {
+/* button.draw {
   font-size: 1.2em;
   padding: 5px;
   align-self: stretch;
-}
+} */
 
 div.card-slot {
   border: 3px solid whitesmoke;
@@ -127,7 +128,7 @@ h2#my-score {
 h3#remaining {
   padding: 10px 50px;
   border-radius: 20px;
-  background-color: #3a27d0;
+  background-color: dimgray;
 }
 
 h1 {
