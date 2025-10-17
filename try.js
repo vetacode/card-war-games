@@ -242,7 +242,7 @@ async function handleDraw() {
       if (computerScore > myScore) {
         header.textContent = `You LOSE The Game, Try Again!!`;
       } else if (computerScore < myScore) {
-        header.textContent = `Congratulations, You WIN The Game!!`;
+        header.textContent = `Congratulations, You WON The Game!!`;
       } else {
         header.textContent = `War CONTINUE!!`;
       }
