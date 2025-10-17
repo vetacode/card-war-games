@@ -195,21 +195,28 @@ async function handleNewDeck() {
 newDeckBtn.addEventListener('click', handleNewDeck);
 
 async function handleDraw() {
+  let data;
   try {
     const res = await fetch(
       `https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`
     );
-
-    const data = await res.json();
-
+    if (!res.ok) throw new Error(`HTTP error! status:',${res.status}`);
+    data = await res.json();
     console.log(data.cards);
+    console.log(data.remaining);
 
-    document.getElementById('cards').innerHTML = `
-    <img src=${data.cards[0].image}>
-    <img src=${data.cards[1].image}>
-        `;
+    document.getElementById('cards').innerHTML =
+      `
+    <img src=${data.cards[0].image}>` +
+      `
+    <img src=${data.cards[1].image}>`;
   } catch (error) {
     console.error('There was an error:', error);
+  } finally {
+    if (data && data.remaining === 0) {
+      drawCardBtn.disabled = true;
+      alert('Deck is empty! Shuffle a new deck.');
+    }
   }
 }
 
