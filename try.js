@@ -184,6 +184,8 @@ async function handleNewDeck() {
     deckId = data.deck_id;
     console.log('deckId:', deckId);
     console.log(data);
+
+    drawCardBtn.disabled = false;
   } catch (error) {
     console.error('There was problem:', error);
     alert('Failed to create a new deck. Please Try again!');
@@ -192,22 +194,23 @@ async function handleNewDeck() {
 
 newDeckBtn.addEventListener('click', handleNewDeck);
 
-function handleDraw() {
-  fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
-    .then((res) => {
-      if (res === undefined) {
-        `HTTP error! status: ${res.status}`;
-        alert('Shuffle a New Deck First before draw a card');
-      }
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data.cards);
+async function handleDraw() {
+  try {
+    const res = await fetch(
+      `https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`
+    );
 
-      document.getElementById(
-        'cards'
-      ).innerHTML = `<img src=${data.cards[0].image}> <img src=${data.cards[1].image}>`;
-    });
+    const data = await res.json();
+
+    console.log(data.cards);
+
+    document.getElementById('cards').innerHTML = `
+    <img src=${data.cards[0].image}>
+    <img src=${data.cards[1].image}>
+        `;
+  } catch (error) {
+    console.error('There was an error:', error);
+  }
 }
 
 drawCardBtn.addEventListener('click', handleDraw);
