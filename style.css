@@ -69,8 +69,8 @@ button.draw {
 div.card-slot {
   border: 3px solid whitesmoke;
   border-radius: 5px;
-  height: 220px;
-  width: calc(220px * 5 / 7);
+  height: 250px;
+  width: calc(250px * 5 / 7);
   background-color: #5a47ff;
   border-radius: 10px;
 }
