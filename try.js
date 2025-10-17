@@ -167,10 +167,14 @@ fetch('https://apis.scrimba.com/bored/api/activity')
  */
 
 let deckId;
+let computerScore = 0;
+let myScore = 0;
 
 const newDeckBtn = document.getElementById('new-deck');
 const drawCardBtn = document.getElementById('draw-cards');
 const cardsContainer = document.getElementById('cards');
+const computerScoreEl = document.getElementById('computer-score');
+const myScoreEl = document.getElementById('my-score');
 
 async function handleNewDeck() {
   drawCardBtn.disabled = true;
@@ -226,12 +230,6 @@ async function handleDraw() {
 
     const winnerText = theWinnerIs(card1, card2);
     header.textContent = winnerText;
-
-    if (winnerText == 'Computer Win!') {
-      document.getElementById(
-        'computer-score'
-      ).textContent = `Computer score: ${data.remaining}`;
-    }
   } catch (error) {
     console.error('There was an error:', error);
   } finally {
@@ -264,10 +262,15 @@ function theWinnerIs(card1, card2) {
   const card2ValueIndex = valueOptions.indexOf(card2.value);
 
   if (card1ValueIndex > card2ValueIndex) {
+    computerScore++;
+    computerScoreEl.textContent = `Computer score: ${computerScore}`;
+
     return 'Computer Win!';
   } else if (card1ValueIndex === card2ValueIndex) {
     return `It's a WAR!!`;
   } else {
+    myScore++;
+    myScoreEl.textContent = `My score: ${myScore}`;
     return 'You Win!';
   }
 }
