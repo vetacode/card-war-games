@@ -236,23 +236,14 @@ drawCardBtn.addEventListener('click', handleDraw);
  * Try to determine which of the 2 cards is the "winner" (has higher value)
  * Aces are the card with the highest "score"
  *
- * In parts:
+ * Part 2:
+ * Instead of logging the winner to the console,
+ * display an `h2` on the screen above the 2 cards
+ * that declares who the winner is.
  *
- * 1. Create a function that takes 2 card objects as parameters,
- * `card1` and `card2`. These card objects have a property called
- * `value`, which can be any one of the following strings, in
- * order of rising "score":
- *
- * "2", "3", "4", "5", "6", "7", "8", "9",
- * "10", "JACK", "QUEEN", "KING", "ACE"
- *
- * I.e. "2" is the lowest score and "ACE" is the highest.
- *
- * The function should determine which of the 2 cards (`card1`
- * or `card2`) has the higher score, or if they have the same score.
- *
- * Log which card wins (or "It's a tie!"
- * if they're the same) to the console
+ * If card1 is the higher card, display "Computer wins!"
+ * If card2 is the higher card, display "You win!"
+ * If they're equal, display "War!"
  */
 
 function theWinnerIs(card1, card2) {
@@ -276,14 +267,12 @@ function theWinnerIs(card1, card2) {
 
   console.log('card 1:', card1ValueIndex);
   console.log('card 2:', card2ValueIndex);
+
+  if (card1ValueIndex > card2ValueIndex) {
+    console.log('Computer Win!');
+  } else if (card1ValueIndex === card2ValueIndex) {
+    console.log(`It's a WAR!!`);
+  } else {
+    console.log('You Win!');
+  }
 }
-
-const card1Obj = {
-  value: '7',
-};
-
-const card2Obj = {
-  value: 'ACE',
-};
-
-theWinnerIs(card1Obj, card2Obj);
