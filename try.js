@@ -110,107 +110,112 @@ const peopleWithPets2 = filterArray(people2, (person) => person.hasPet);
 
 console.log(peopleWithPets2);
 
-
 /**
  * Challenge: method chaining!
- * 
+ *
  * 1. Select the button in the DOM and add an event listener to it without saving the DOM element as a separate variable. I.e. "chain" the `addEventListener` on after your `getElementById()`(When clicked, log "Clicked" to the console)
  *    - I realize this might feel like busywork, but my intent will make sense soon
- * 
+ *
  *  2. Given the array below, chain the `.filter` and `.map` array methods together to turn the array into an array of string email addresses of only the people in the array who voted. Log the array of email addresses to the console
  */
-
-
 
 // document.getElementById('deck').addEventListener('click', handleClick);
 
 const voters = [
-  {name: "Joe", email: "joe@joe.com", voted: true},
-  {name: "Jane", email: "jane@jane.com", voted: true},
-  {name: "Bo", email: "bo@bo.com", voted: false},
-  {name: "Bane", email: "bane@bane.com", voted: false}
-]
+  { name: 'Joe', email: 'joe@joe.com', voted: true },
+  { name: 'Jane', email: 'jane@jane.com', voted: true },
+  { name: 'Bo', email: 'bo@bo.com', voted: false },
+  { name: 'Bane', email: 'bane@bane.com', voted: false },
+];
 
-const personVoted = voters.filter(p => p.voted).map(e => e.email).forEach(d => console.log(d))
-// console.log(personVoted) 
+const personVoted = voters
+  .filter((p) => p.voted)
+  .map((e) => e.email)
+  .forEach((d) => console.log(d));
+// console.log(personVoted)
 
+const promise = fetch(
+  'https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/'
+);
+console.log(promise); // promise
+const promise2 = promise.then((res) => res.json());
+console.log(promise2); //promise
 
-const promise = fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
-console.log(promise) // promise
-const promise2 = promise.then(res => res.json())
-console.log(promise2) //promise
-
-
-fetch("https://apis.scrimba.com/bored/api/activity")
-    .then(function(res) {
-        return "Hello" //has to return something to print in the next then
-    })
-    .then(function(whatever) {
-        console.log(whatever)
-        return 'World!'  //has to return something to print in the next then
-    }).then(function(anything){
-      console.log(anything)
-    })
-
-
-    /**
- * Challenge
- * 
- * Background:
- * The Deck of Cards API expects us to provide the deck id 
- * of the deck we're playing with so it can remember which
- * cards we've already drawn, how many are remaining in the
- * deck, etc.
- * 
- * Task: save the deck_id from the returned data to a local
- * variable so we can use it later
- */
-
-    function handleClick() {
-      fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
-          .then(res => res.json())
-          .then(data => 
-            {
-              const deckId = data.deck_id
-              console.log(deckId)
-            })
-  }
-  
-  document.getElementById("new-deck").addEventListener("click", handleClick)
+fetch('https://apis.scrimba.com/bored/api/activity')
+  .then(function (res) {
+    return 'Hello'; //has to return something to print in the next then
+  })
+  .then(function (whatever) {
+    console.log(whatever);
+    return 'World!'; //has to return something to print in the next then
+  })
+  .then(function (anything) {
+    console.log(anything);
+  });
 
 /**
  * Challenge
- * 
+ *
+ * Background:
+ * The Deck of Cards API expects us to provide the deck id
+ * of the deck we're playing with so it can remember which
+ * cards we've already drawn, how many are remaining in the
+ * deck, etc.
+ *
+ * Task: save the deck_id from the returned data to a local
+ * variable so we can use it later
+ */
+let deckId;
+function handleClick() {
+  fetch('https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/')
+    .then((res) => res.json())
+    .then((data) => {
+      deckId = data.deck_id;
+      console.log(deckId);
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error('there was a problem:', error);
+    });
+}
+
+document.getElementById('new-deck').addEventListener('click', handleClick);
+
+/**
+ * Challenge
+ *
  * Task: Using the saved deckId, draw 2 new cards from the deck
- * 
+ *
  * Docs for original Deck of Cards API: https://deckofcardsapi.com/#draw-card
  * BaseUrl you'll use: https://apis.scrimba.com/deckofcards/api/deck/
  * (that will replace the base url of https://deckofcardsapi.com/api/deck/)
  * that you'll see in the deck of cards API docs.
  */
 
-function handleClick() {
-  fetch("https://apis.scrimba.com/deckofcards/api/deck/{deck_id}/draw/?count=2")
-      .then(res => res.json())
-      .then(data => 
-        {
-          const deckId = data.deck_id
-          console.log(deckId)
-        })
+function handleClick2() {
+  fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
+    .then((res) => {
+      if (res === undefined) {
+        `HTTP error! status: ${res.status}`;
+        alert('Shuffle a New Deck First before draw a card');
+      }
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data.cards);
+
+      document.getElementById(
+        'cards'
+      ).innerHTML = `<img src=${data.cards[0].image}> <img src=${data.cards[1].image}>`;
+    });
 }
 
-document.getElementById("draw-deck").addEventListener("click", handleClick)
-
-
-
-
+document.getElementById('draw-cards').addEventListener('click', handleClick2);
 
 /**
  * Challenge:
- * 
+ *
  * Display the images of the 2 cards you drew in the browser.
  * Probably best to use `innerHTML` to insert a couple <img> elements
  * on the page.
  */
-
-fetch('https://apis.scrimba.com/bored/api/activity')
