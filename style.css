@@ -109,6 +109,14 @@ button:disabled {
 h1#header {
   margin: 10px 30px;
 }
+
+h2 {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #f8ff30;
+  color: darkblue;
+}
+
 h2#computer-score {
   margin: 30px 0 10px;
 }
