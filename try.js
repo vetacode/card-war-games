@@ -167,20 +167,31 @@ fetch('https://apis.scrimba.com/bored/api/activity')
  */
 
 let deckId;
-function handleNewDeck() {
-  fetch('https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/')
-    .then((res) => res.json())
-    .then((data) => {
-      deckId = data.deck_id;
-      console.log(deckId);
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error('there was a problem:', error);
-    });
+
+const newDeckBtn = document.getElementById('new-deck');
+const drawCardBtn = document.getElementById('draw-cards');
+
+async function handleNewDeck() {
+  drawButton.disabled = true;
+
+  try {
+    const res = await fetch(
+      'https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/'
+    );
+
+    if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+    const data = await res.json();
+    deckId = data.deck_id;
+    console.log('deckId:', deckId);
+    console.log(data);
+  } catch (error) {
+    console.error('There was problem:', error);
+    alert('Failed to create a new deck. Please Try again!');
+  }
 }
 
-document.getElementById('new-deck').addEventListener('click', handleNewDeck);
+newDeckBtn.addEventListener('click', handleNewDeck);
 
 function handleDraw() {
   fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
@@ -200,4 +211,4 @@ function handleDraw() {
     });
 }
 
-document.getElementById('draw-cards').addEventListener('click', handleDraw);
+drawCardBtn.addEventListener('click', handleDraw);
