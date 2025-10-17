@@ -196,8 +196,11 @@ async function handleNewDeck() {
   <div class="card-slot"></div>
   <div class="card-slot"></div>
 `;
+    computerScoreEl.textContent = `Computer score: ${
+      computerScore - computerScore
+    }`;
 
-    document.getElementById('header').textContent = `Let's Begin!`;
+    document.getElementById('header').textContent = `Let's Begin, Draw Cards!`;
 
     console.log(data.remaining);
     remaining.textContent = `Cards Remaining: ${data.remaining}`;
@@ -236,6 +239,13 @@ async function handleDraw() {
     if (data.remaining === 0) {
       drawCardBtn.disabled = true;
       alert('Deck is empty! Shuffle a new deck.');
+      if (computerScore > myScore) {
+        header.textContent = `You LOSE The Game, Try Again!!`;
+      } else if (computerScore < myScore) {
+        header.textContent = `Congratulations, You WIN The Game!!`;
+      } else {
+        header.textContent = `War CONTINUE!!`;
+      }
     }
   }
 }
