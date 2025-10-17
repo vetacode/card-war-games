@@ -193,6 +193,9 @@ async function handleNewDeck() {
   <div class="card-slot"></div>
   <div class="card-slot"></div>
 `;
+
+    document.getElementById('header').textContent = `Let's Begin!`;
+
     console.log(data.remaining);
     cardsRemaining.textContent = `Cards Remaining: ${data.remaining}`;
   } catch (error) {
@@ -218,6 +221,11 @@ async function handleDraw() {
     cardsContainer.children[1].innerHTML = `<img src=${data.cards[1].image} class='card'>`;
 
     cardsRemaining.textContent = `Cards Remaining: ${data.remaining}`;
+
+    const card1 = data.cards[0];
+    const card2 = data.cards[1];
+
+    theWinnerIs(card1, card2);
   } catch (error) {
     console.error('There was an error:', error);
   } finally {
@@ -229,22 +237,6 @@ async function handleDraw() {
 }
 
 drawCardBtn.addEventListener('click', handleDraw);
-
-/**
- * Challenge:
- *
- * Try to determine which of the 2 cards is the "winner" (has higher value)
- * Aces are the card with the highest "score"
- *
- * Part 2:
- * Instead of logging the winner to the console,
- * display an `h2` on the screen above the 2 cards
- * that declares who the winner is.
- *
- * If card1 is the higher card, display "Computer wins!"
- * If card2 is the higher card, display "You win!"
- * If they're equal, display "War!"
- */
 
 function theWinnerIs(card1, card2) {
   const valueOptions = [
@@ -265,14 +257,15 @@ function theWinnerIs(card1, card2) {
   const card1ValueIndex = valueOptions.indexOf(card1.value);
   const card2ValueIndex = valueOptions.indexOf(card2.value);
 
-  console.log('card 1:', card1ValueIndex);
-  console.log('card 2:', card2ValueIndex);
-
   if (card1ValueIndex > card2ValueIndex) {
     console.log('Computer Win!');
+
+    document.getElementById('header').textContent = 'Computer Win!';
   } else if (card1ValueIndex === card2ValueIndex) {
     console.log(`It's a WAR!!`);
+    document.getElementById('header').textContent = `It's a WAR!!`;
   } else {
     console.log('You Win!');
+    document.getElementById('header').textContent = 'You Win!';
   }
 }

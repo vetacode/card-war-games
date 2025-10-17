@@ -4,7 +4,7 @@ body {
   padding: 0;
   /* background-image: url('img/table.jpg'); */
   font-family: 'Exo 2', sans-serif;
-  /* height: 100vh; */
+  height: 100vh;
   background: #1fa2ff;
   background: -webkit-linear-gradient(to bottom, #a6ffcb, #12d8fa, #1fa2ff);
   background: linear-gradient(to bottom, #a6ffcb, #12d8fa, #1fa2ff);
@@ -80,8 +80,8 @@ div.card-slot:nth-of-type(1) {
 }
 
 div#cards {
-  margin: 30px;
-  gap: 10px;
+  /* margin: 30px; */
+  gap: 40px;
 }
 
 img.card {
@@ -106,8 +106,14 @@ button:disabled {
   color: #666;
 }
 
-h2 {
-  margin: 10px;
+h1#header {
+  margin: 10px 30px;
+}
+h2#computer-score {
+  margin: 30px 0 10px;
+}
+h2#my-score {
+  margin: 10px 0 30px;
 }
 
 h1 {
@@ -119,6 +125,6 @@ h1 {
 #cards {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: space-around; */
+  /* align-items: center; */
 }
