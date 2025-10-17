@@ -189,16 +189,16 @@ async function handleNewDeck() {
     deckId = data.deck_id;
     console.log('deckId:', deckId);
     console.log(data);
-
+    computerScore = 0;
+    myScore = 0;
+    computerScoreEl.textContent = `Computer score: ${computerScore}`;
+    myScoreEl.textContent = `My score: ${myScore}`;
     drawCardBtn.disabled = false;
 
     cardsContainer.innerHTML = `
   <div class="card-slot"></div>
   <div class="card-slot"></div>
 `;
-    computerScoreEl.textContent = `Computer score: ${
-      computerScore - computerScore
-    }`;
 
     document.getElementById('header').textContent = `Let's Begin, Draw Cards!`;
 
