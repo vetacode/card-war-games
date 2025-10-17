@@ -171,7 +171,6 @@ let deckId;
 const newDeckBtn = document.getElementById('new-deck');
 const drawCardBtn = document.getElementById('draw-cards');
 const cardsContainer = document.getElementById('cards');
-const cardsRemaining = document.getElementById('remaining');
 
 async function handleNewDeck() {
   drawCardBtn.disabled = true;
@@ -197,7 +196,7 @@ async function handleNewDeck() {
     document.getElementById('header').textContent = `Let's Begin!`;
 
     console.log(data.remaining);
-    cardsRemaining.textContent = `Cards Remaining: ${data.remaining}`;
+    remaining.textContent = `Cards Remaining: ${data.remaining}`;
   } catch (error) {
     console.error('There was problem:', error);
     alert('Failed to create a new deck. Please Try again!');
@@ -220,12 +219,13 @@ async function handleDraw() {
     cardsContainer.children[0].innerHTML = `<img src=${data.cards[0].image} class='card'>`;
     cardsContainer.children[1].innerHTML = `<img src=${data.cards[1].image} class='card'>`;
 
-    cardsRemaining.textContent = `Cards Remaining: ${data.remaining}`;
+    remaining.textContent = `Cards Remaining: ${data.remaining}`;
 
     const card1 = data.cards[0];
     const card2 = data.cards[1];
 
-    theWinnerIs(card1, card2);
+    const winnerText = theWinnerIs(card1, card2);
+    header.textContent = winnerText;
   } catch (error) {
     console.error('There was an error:', error);
   } finally {
@@ -258,13 +258,10 @@ function theWinnerIs(card1, card2) {
   const card2ValueIndex = valueOptions.indexOf(card2.value);
 
   if (card1ValueIndex > card2ValueIndex) {
-    console.log('Computer Win!');
-    document.getElementById('header').textContent = 'Computer Win!';
+    return 'Computer Win!';
   } else if (card1ValueIndex === card2ValueIndex) {
-    console.log(`It's a WAR!!`);
-    document.getElementById('header').textContent = `It's a WAR!!`;
+    return `It's a WAR!!`;
   } else {
-    console.log('You Win!');
-    document.getElementById('header').textContent = 'You Win!';
+    return 'You Win!';
   }
 }
