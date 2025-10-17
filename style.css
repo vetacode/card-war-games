@@ -56,14 +56,19 @@ button.draw {
 }
 
 div.card-slot {
-  border: 1px solid black;
+  border: 2px solid whitesmoke;
   border-radius: 5px;
-  height: 120px;
-  width: calc(120px * 5 / 7);
+  height: 320px;
+  width: calc(320px * 5 / 7);
 }
 
 div.card-slot:nth-of-type(1) {
   margin-bottom: 10px;
+}
+
+div#cards {
+  margin: 30px;
+  gap: 10px;
 }
 
 img.card {
@@ -91,7 +96,7 @@ h2 {
 }
 
 h1 {
-  color: darkblue;
+  color: rgb(255, 255, 255);
   font-size: 3em;
   margin: 10px;
 }

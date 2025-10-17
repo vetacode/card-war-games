@@ -166,7 +166,7 @@ fetch('https://apis.scrimba.com/bored/api/activity')
  * variable so we can use it later
  */
 let deckId;
-function handleClick() {
+function handleNewDeck() {
   fetch('https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/')
     .then((res) => res.json())
     .then((data) => {
@@ -179,20 +179,9 @@ function handleClick() {
     });
 }
 
-document.getElementById('new-deck').addEventListener('click', handleClick);
+document.getElementById('new-deck').addEventListener('click', handleNewDeck);
 
-/**
- * Challenge
- *
- * Task: Using the saved deckId, draw 2 new cards from the deck
- *
- * Docs for original Deck of Cards API: https://deckofcardsapi.com/#draw-card
- * BaseUrl you'll use: https://apis.scrimba.com/deckofcards/api/deck/
- * (that will replace the base url of https://deckofcardsapi.com/api/deck/)
- * that you'll see in the deck of cards API docs.
- */
-
-function handleClick2() {
+function handleDraw() {
   fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
     .then((res) => {
       if (res === undefined) {
@@ -210,12 +199,4 @@ function handleClick2() {
     });
 }
 
-document.getElementById('draw-cards').addEventListener('click', handleClick2);
-
-/**
- * Challenge:
- *
- * Display the images of the 2 cards you drew in the browser.
- * Probably best to use `innerHTML` to insert a couple <img> elements
- * on the page.
- */
+document.getElementById('draw-cards').addEventListener('click', handleDraw);
