@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   color: white;
 }
 
@@ -114,6 +114,12 @@ h2#computer-score {
 }
 h2#my-score {
   margin: 10px 0 30px;
+}
+
+h3#remaining {
+  padding: 10px 50px;
+  border-radius: 20px;
+  background-color: #3a27d0;
 }
 
 h1 {
