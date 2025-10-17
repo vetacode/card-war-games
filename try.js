@@ -226,10 +226,16 @@ async function handleDraw() {
 
     const winnerText = theWinnerIs(card1, card2);
     header.textContent = winnerText;
+
+    if (winnerText == 'Computer Win!') {
+      document.getElementById(
+        'computer-score'
+      ).textContent = `Computer score: ${data.remaining}`;
+    }
   } catch (error) {
     console.error('There was an error:', error);
   } finally {
-    if (data && data.remaining === 0) {
+    if (data.remaining === 0) {
       drawCardBtn.disabled = true;
       alert('Deck is empty! Shuffle a new deck.');
     }
