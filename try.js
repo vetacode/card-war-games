@@ -165,6 +165,7 @@ fetch('https://apis.scrimba.com/bored/api/activity')
  * Task: save the deck_id from the returned data to a local
  * variable so we can use it later
  */
+
 let deckId;
 function handleNewDeck() {
   fetch('https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/')

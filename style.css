@@ -2,12 +2,12 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-image: url('img/table.jpg');
+  /* background-image: url('img/table.jpg'); */
   font-family: 'Exo 2', sans-serif;
   /* height: 100vh; */
-  /* background: #1fa2ff;
+  background: #1fa2ff;
   background: -webkit-linear-gradient(to bottom, #a6ffcb, #12d8fa, #1fa2ff);
-  background: linear-gradient(to bottom, #a6ffcb, #12d8fa, #1fa2ff); */
+  background: linear-gradient(to bottom, #a6ffcb, #12d8fa, #1fa2ff);
 }
 
 body {
@@ -41,12 +41,13 @@ button:active {
 
 button#new-deck {
   align-self: flex-center;
-  padding: 5px;
+  padding: 10px;
   margin: 10px;
-  background-color: #a6ffcb;
+  background-color: #5a47ff;
   cursor: pointer;
   border: none;
   border-radius: 5px;
+  color: aliceblue;
 }
 
 button.draw {
@@ -89,6 +90,8 @@ div.top > p {
 
 button:disabled {
   cursor: not-allowed;
+  background-color: #ccc;
+  color: #666;
 }
 
 h2 {
@@ -96,7 +99,7 @@ h2 {
 }
 
 h1 {
-  color: rgb(255, 255, 255);
+  color: rgb(255, 52, 52);
   font-size: 3em;
   margin: 10px;
 }
