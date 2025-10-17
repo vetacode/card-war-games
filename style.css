@@ -67,13 +67,12 @@ button.draw {
 }
 
 div.card-slot {
-  border: 4px solid whitesmoke;
+  border: 3px solid whitesmoke;
   border-radius: 5px;
-  height: 320px;
-  width: calc(320px * 5 / 7);
+  height: 220px;
+  width: calc(220px * 5 / 7);
   background-color: #5a47ff;
-  opacity: 0.4;
-  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
 }
 
 div.card-slot:nth-of-type(1) {

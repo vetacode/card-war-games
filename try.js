@@ -170,6 +170,7 @@ let deckId;
 
 const newDeckBtn = document.getElementById('new-deck');
 const drawCardBtn = document.getElementById('draw-cards');
+const cardsContainer = document.getElementById('cards');
 
 async function handleNewDeck() {
   drawCardBtn.disabled = true;
@@ -205,11 +206,8 @@ async function handleDraw() {
     console.log(data.cards);
     console.log(data.remaining);
 
-    document.getElementById('cards').innerHTML =
-      `
-    <img src=${data.cards[0].image}>` +
-      `
-    <img src=${data.cards[1].image}>`;
+    cardsContainer.children[0].innerHTML = `<img src=${data.cards[0].image} class='card'>`;
+    cardsContainer.children[1].innerHTML = `<img src=${data.cards[1].image} class='card'>`;
   } catch (error) {
     console.error('There was an error:', error);
   } finally {
