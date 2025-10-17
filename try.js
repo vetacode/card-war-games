@@ -171,6 +171,7 @@ let deckId;
 const newDeckBtn = document.getElementById('new-deck');
 const drawCardBtn = document.getElementById('draw-cards');
 const cardsContainer = document.getElementById('cards');
+const cardsRemaining = document.getElementById('remaining');
 
 async function handleNewDeck() {
   drawCardBtn.disabled = true;
@@ -187,6 +188,13 @@ async function handleNewDeck() {
     console.log(data);
 
     drawCardBtn.disabled = false;
+
+    cardsContainer.innerHTML = `
+  <div class="card-slot"></div>
+  <div class="card-slot"></div>
+`;
+    console.log(data.remaining);
+    cardsRemaining.textContent = `Cards Remaining: ${data.remaining}`;
   } catch (error) {
     console.error('There was problem:', error);
     alert('Failed to create a new deck. Please Try again!');
@@ -208,6 +216,8 @@ async function handleDraw() {
 
     cardsContainer.children[0].innerHTML = `<img src=${data.cards[0].image} class='card'>`;
     cardsContainer.children[1].innerHTML = `<img src=${data.cards[1].image} class='card'>`;
+
+    cardsRemaining.textContent = `Cards Remaining: ${data.remaining}`;
   } catch (error) {
     console.error('There was an error:', error);
   } finally {
