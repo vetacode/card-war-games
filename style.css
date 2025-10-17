@@ -50,6 +50,17 @@ button#new-deck {
   color: aliceblue;
   font-size: x-large;
 }
+button#draw-cards {
+  align-self: flex-center;
+  padding: 10px 30px;
+  margin: 10px;
+  background-color: #ff4747;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: aliceblue;
+  font-size: x-large;
+}
 
 button#new-deck:hover {
   background-color: #4a37e0;
@@ -101,7 +112,7 @@ div.top > p {
   margin-left: 10px;
 }
 
-button:disabled {
+button#draw-cards:disabled {
   cursor: not-allowed;
   background-color: #ccc;
   color: #666;
