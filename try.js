@@ -172,13 +172,12 @@ const newDeckBtn = document.getElementById('new-deck');
 const drawCardBtn = document.getElementById('draw-cards');
 
 async function handleNewDeck() {
-  drawButton.disabled = true;
+  drawCardBtn.disabled = true;
 
   try {
     const res = await fetch(
       'https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/'
     );
-
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
     const data = await res.json();

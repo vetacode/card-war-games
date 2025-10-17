@@ -50,6 +50,16 @@ button#new-deck {
   color: aliceblue;
 }
 
+button#new-deck:hover {
+  background-color: #4a37e0;
+  cursor: pointer;
+}
+
+button#new-deck:active {
+  transform: scale(0.95);
+  background-color: #3a27d0;
+}
+
 button.draw {
   font-size: 1.2em;
   padding: 5px;
