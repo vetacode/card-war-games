@@ -271,4 +271,19 @@ function theWinnerIs(card1, card2) {
     'KING',
     'ACE',
   ];
+  const card1ValueIndex = valueOptions.indexOf(card1.value);
+  const card2ValueIndex = valueOptions.indexOf(card2.value);
+
+  console.log('card 1:', card1ValueIndex);
+  console.log('card 2:', card2ValueIndex);
 }
+
+const card1Obj = {
+  value: '7',
+};
+
+const card2Obj = {
+  value: 'ACE',
+};
+
+theWinnerIs(card1Obj, card2Obj);
