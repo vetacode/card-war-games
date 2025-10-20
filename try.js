@@ -107,7 +107,6 @@ const myScoreEl = document.getElementById('my-score');
 
 async function handleNewDeck() {
   drawCardBtn.disabled = true;
-
   try {
     const res = await fetch(
       'https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/'
