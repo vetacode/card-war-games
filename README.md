@@ -2,13 +2,11 @@
 
 ![Project Screenshot](./assets/screenshot.png)
 
-<!-- Replace ./assets/screenshot.png with your image file. Recommended size: 1280×720 or 800×450. You can also use a GIF to show gameplay (e.g. ./assets/demo.gif) -->
-
 ## Overview
 
 A small browser-based card game that uses the [Deck of Cards API](https://deckofcardsapi.com/) (via Scrimba proxy) to draw cards and compare their values. Each round two cards are drawn: one for the computer and one for the player. Higher card wins the round and earns a point. Game ends when the deck is empty.
 
-This repo contains a minimal HTML/CSS/JavaScript implementation — perfect for learning DOM manipulation, fetch API, and game logic.
+This repo contains a minimal HTML/CSS/JavaScript implementation. It's a perfect project for learning DOM manipulation, fetch API, and game logic.
 
 ---
 
@@ -144,7 +142,7 @@ function determineCardWinner(card1, card2) {
 ├─ script.js
 ├─ styles.css
 ├─ assets/
-│  └─ screenshot.png  <-- place your screenshot here
+│  └─ screenshot.png
 └─ README.md
 ```
 
