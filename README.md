@@ -4,7 +4,7 @@
 
 🌐 Live Demo
 
-Live Site: [fiqrie-portfolio.vercel.app](https://card-war-games.vercel.app/)
+Live Site: [https://card-war-games.vercel.app/](https://card-war-games.vercel.app/)
 
 ## Overview
 
