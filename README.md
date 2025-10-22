@@ -2,6 +2,10 @@
 
 ![Project Screenshot](./assets/screenshot.png)
 
+🌐 Live Demo
+
+Live Site: [fiqrie-portfolio.vercel.app](https://card-war-games.vercel.app/)
+
 ## Overview
 
 A small browser-based card game that uses the [Deck of Cards API](https://deckofcardsapi.com/) (via Scrimba proxy) to draw cards and compare their values. Each round two cards are drawn: one for the computer and one for the player. Higher card wins the round and earns a point. Game ends when the deck is empty.
